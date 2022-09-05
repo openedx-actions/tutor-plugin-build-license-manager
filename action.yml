@@ -17,11 +17,11 @@ inputs:
     description: 'The name of the repository inside your AWS Elastic Container Registry (ECR) in which the newly created container will be uploaded and tagged. Defaults to "license-manager"'
     required: false
     default: 'license-manager'
-  license-manager-repository:
-    description: 'Github repo of License Manager source code. Default: https://github.com/openedx/license-manager.git'
+  plugin-repository:
+    description: 'Github repo containing Tutor plugin for License Manager. Default: https://github.com/lpm0073/tutor-contrib-license-manager.git'
     required: false
-    default: 'https://github.com/openedx/license-manager.git'
-  license-manager-version:
+    default: 'https://github.com/lpm0073/tutor-contrib-license-manager.git'
+  plugin-version:
     description: 'Github branch or tag. Default: master'
     required: false
     default: 'master'
@@ -87,7 +87,7 @@ runs:
       id: pip-install-plugin
       shell: bash
       run: |-
-        pip install git+${{ inputs.license-manager-repository }}@${{ inputs.license-manager-version }}
+        pip install git+${{ inputs.plugin-repository  }}@${{ inputs.plugin-version }}
         tutor plugins enable license_manager
         tutor config save --set LICENSE_MANAGER_DOCKER_IMAGE=${DOCKER_IMAGE_LICENSE_MANAGER}
 
