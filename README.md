@@ -15,8 +15,7 @@ Github Action that uses Tutor to build a Docker image for Open edX [License Mana
 
 The edX License Manager Service, a Django backend for managing licenses and subscriptions. This is a production-ready image consisting of the repository [https://github.com/openedx/license-manager](https://github.com/openedx/license-manager).
 
-## Usage:
-
+## Usage
 
 ```yaml
 name: Example workflow
@@ -46,12 +45,12 @@ jobs:
       # This action.
       # Note:
       # - aws-ecr-repo is optional. Default: 'license-manager'
-      # - license-manager-repository is optional. Default: https://github.com/openedx/license-manager.git
-      # - license-manager-version is optional. Default: master
+      # - plugin-repository is optional. Default: https://github.com/openedx/license-manager.git
+      # - plugin-version is optional. Default: main
       - name: Build the image and upload to AWS ECR
-        uses: openedx-actions/tutor-plugin-build-license-manager@v0.0.1
+        uses: openedx-actions/tutor-plugin-build-license-manager@v0.0.2
         with:
           aws-ecr-repo: license_manager
-          license-manager-repository: https://github.com/openedx/license-manager.git
-          license-manager-version: master #in this casem the main branch is specified. You may also specify a tag
+          plugin-repository: https://github.com/lpm0073/tutor-contrib-license-manager.git
+          plugin-version: main # in this case the main branch is specified. You may also specify a tag
 ```
