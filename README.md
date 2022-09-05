@@ -44,9 +44,12 @@ jobs:
         uses: openedx-actions/tutor-k8s-init@v1.0.0
 
       # This action.
-      # Note that aws-ecr-repo is optional. The default value is 'license-manager'
+      # Note:
+      # - aws-ecr-repo is optional. Default: 'license-manager'
+      # - license-manager-repository is optional. Default: https://github.com/openedx/license-manager.git
+      # - license-manager-version is optional. Default: master
       - name: Build the image and upload to AWS ECR
-        uses: openedx-actions/tutor-plugin-build-license-manager@v0.1.1
+        uses: openedx-actions/tutor-plugin-build-license-manager@v0.0.1
         with:
           aws-ecr-repo: license_manager
           license-manager-repository: https://github.com/openedx/license-manager.git
