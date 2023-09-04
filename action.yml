@@ -34,7 +34,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v3.6.0
+    - uses: actions/checkout@v4.0.0
 
     - name: Set up Docker Buildx
       id: setup-docker
